@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Flipper</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        font-family: Arial, sans-serif;
+        font-size: 40px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .button-container {
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-container">
+      <button onclick="changeColor()">Flip Color</button>
+    </div>
+
+    <script>
+      function changeColor() {
+        // Array of colors
+        var colors = [
+          "#ff0000",
+          "#00ff00",
+          "#0000ff",
+          "#ffff00",
+          "#ff00ff",
+          "#00ffff",
+        ];
+
+        // Get random index from the array
+        var randomIndex = Math.floor(Math.random() * colors.length);
+
+        // Set the background color of the body
+        document.body.style.backgroundColor = colors[randomIndex];
+      }
+    </script>
+  </body>
+</html>

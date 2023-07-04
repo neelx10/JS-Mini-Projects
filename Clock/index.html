@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real-Time Clock</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        font-size: 40px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="clock"></h1>
+    <script>
+      function updateTime() {
+        var now = new Date(); // Get the current date and time
+
+        var hours = now.getHours(); // Get the current hour (0-23)
+        var minutes = now.getMinutes(); // Get the current minute (0-59)
+        var seconds = now.getSeconds(); // Get the current second (0-59)
+
+        var ampm = hours >= 12 ? "PM" : "AM"; // Determine AM or PM
+
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12; // Handle midnight (0 hours)
+
+        // Pad single digits with leading zeros
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        var time = hours + ":" + minutes + ":" + seconds + " " + ampm; // Format the time as HH:mm:ss AM/PM
+
+        document.getElementById("clock").textContent = time; // Set the clock element's text content to the current time
+
+        setTimeout(updateTime, 1000); // Schedule the next update after 1 second (1000 milliseconds)
+      }
+
+      updateTime(); // Initial call to start the clock
+    </script>
+  </body>
+</html>
